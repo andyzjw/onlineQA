@@ -1,0 +1,33 @@
+*{
+    padding:0;
+    margin:0;
+
+}
+.ask{
+    width:500px;
+    margin:auto;
+}
+.questionTitle,.back{
+    text-align:center;
+}
+.ask .questionTitle{
+    font-size:30px;
+    margin:18px 0;
+}
+.back{
+    font-size:25px;
+    margin-bottom:10px;
+}
+.ask .questionContent table{
+   margin:auto;
+ 
+}
+
+.ask .questionContent textarea{
+    width:173px;
+    
+}
+.ask .questionContent [type="button"]{
+    padding:5px;
+    font-size:15px
+}

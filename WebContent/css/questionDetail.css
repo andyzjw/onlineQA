@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+@charset "UTF-8";
+
+* {
+	padding: 0;
+	margin: 0;
+	font-size: 18px;
+}
+
+.questionDetail {
+	width: 600px;
+	margin: auto;
+	margin: 30px auto;
+}
+
+.questionDetail form table {
+	margin: auto
+}
+
+.questionDetail form table tr td:last-child {
+	background: lightgreen;
+}
+
+
+
+.questionDetail form table tr:last-child td:last-child {
+	background: white;
+}
+
+.questionDetail form table tr:last-child input {
+	padding: 3px;
+}
+
+.questionDetail form table tr td{
+	padding:5px;
+}

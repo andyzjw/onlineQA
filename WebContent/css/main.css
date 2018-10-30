@@ -1,0 +1,22 @@
+@charset "UTF-8";
+*{
+    padding:0;
+    marigin:0;
+}
+.main{
+    width:800px;
+    margin:auto;
+    text-align:center;
+}
+.mainTitle{
+    font-size:30px;
+    margin:20px 0;
+}
+.mainAns{
+     font-size:24px;
+    margin-bottom:20px;
+} 
+.mainContent table{
+    width:800px;
+    font-size:24px;
+}

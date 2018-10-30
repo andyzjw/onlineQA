@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace的名字需要跟接口的类名一致 -->
+<mapper namespace="com.dao.QuestionMapper">
+
+	<resultMap type="Question" id="questionMap">
+		<id property="id" column="id"/>
+		<result property="title" column="title"/>
+		<result property="detailDesc" column="detailDesc"/>
+		<result property="answerCount" column="answerCount"/>
+		<result property="lastModified" column="lastModified"/>
+		<collection property="aList" column="id" select="selectAnswer"></collection>
+	</resultMap>
+	
+	<resultMap type="Answer" id="answerMap">
+		<id property="id" column="id"/>
+		<result property="ansContent" column="ansContent"/>
+		<result property="ansDate" column="ansDate"/>
+		<!-- <result property="qid" column="qid"/> -->
+	</resultMap>
+	<!-- 问题查询 -->
+	<select id="selectAnswer" parameterType="Answer" resultMap="answerMap">
+		select * from
+		answers
+		where qid=#{0}	
+	</select>
+	
+	<!-- 查询 -->
+	<select id="query" parameterType="Question" resultMap="questionMap">
+		select * 
+		from questions
+		<where>
+			<if test="id!=null">id=#{id}</if>
+		</where>
+		order by lastModified desc
+	</select>
+	
+	<!-- 查询所有 -->
+	<select id="queryAll" resultMap="questionMap">
+		select * 
+		from questions
+	</select>
+	<!-- 添加问题 -->
+	<insert id="addQuestion" parameterType="Question">
+		insert into questions(title,detaildesc,answercount,lastmodified) values
+		(#{title},#{detailDesc},#{answerCount},#{lastModified})
+	</insert>
+	
+	<!-- 更新日期与次数 -->
+	<update id="updateQuestion" parameterType="Question" >
+		update questions
+		set answerCount=#{answerCount},
+			lastModified=#{lastModified}
+		where id=#{id}
+	</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
